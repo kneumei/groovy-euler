@@ -12,16 +12,22 @@
 * outer loop instead.
 */
 
-long answer = 0
-for(a in 3..(1000/3)){
-  for(b in (a+1)..1000-1-a){
-    c = 1000 - a - b;
+class problem{
+	def run(){
+		long answer = 0
+		for(a in 3..(1000/3)){
+			for(b in (a+1)..1000-1-a){
+				c = 1000 - a - b;
 
-    if((a*a + b*b) == c*c){
-      println "a: ${a} b: ${b} c: ${c}" 
-      answer = a * b * c;
-      }
-   }
+				if((a*a + b*b) == c*c){
+					println "a: ${a} b: ${b} c: ${c}" 
+					answer = a * b * c;
+				}
+			}
+		}
+
+		println answer
+	}
 }
 
-println answer
+new problem().run();

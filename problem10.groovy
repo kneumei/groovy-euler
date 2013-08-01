@@ -12,6 +12,12 @@
 * only prime numbers.
 */
 
-def range = 1..2000000
+class problem{
+	def run(){
+		def range = 1..2000000
 
-println range.findAll{n -> Primes.isPrime(n)}.inject(0l,{x,accum-> x+accum})
+		println range.findAll{n -> Primes.isPrime(n)}.inject(0l,{x,accum-> x+accum})
+		}
+}
+
+new problem().run();

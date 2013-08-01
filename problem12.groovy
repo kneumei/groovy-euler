@@ -7,15 +7,21 @@
 * need to check below SQRT(N) for factors of N.
 */
 
-boolean done=false;
-long num=1l;
-long count=1l;
-while(!done){
-  if(Factors.factor(num).size()>500) done=true;
-  else {
-    count++
-    num=num+count;
-  }
+class problem{
+	def run(){
+		boolean done=false;
+		long num=1l;
+		long count=1l;
+		while(!done){
+			if(Factors.factor(num).size()>500) done=true;
+			else {
+				count++
+				num=num+count;
+			}
+		}
+
+		println num
+	}
 }
 
-println num
+new problem().run()

@@ -4,11 +4,21 @@
 * one-hundred 50-digit numbers.
 *
 * The numbers are stored in problem13.txt. 
+* ANSWER: 5537376230
 */
 
-def sum = 0l;
-new File('problem13.txt').eachLine{ line ->
-  sum += (line.substring(0,15)).toLong();
+
+
+class problem{
+	def run(){
+		BigInteger bi = new BigInteger(0);
+		new File('problem13.txt').eachLine{ line ->
+			bi = bi.add(new BigInteger(line));
+		}
+
+		println bi.toString().substring(0,10);
+	}
 }
 
-println sum
+new problem().run()
+

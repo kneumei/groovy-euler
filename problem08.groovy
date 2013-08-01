@@ -33,30 +33,34 @@
 * calculate the product of the window and compare it to the max
 */
 
+class problem{
+  def run(){
+    //the current value
+    int maxProduct = 0;
+    //a list of integers
+    def slidingWindowOfInts = []; 
+    
+    //iterate over every character in the string
+    for( s in (new File('problem08.txt')).getText().toList()){
+      //if the character is not a valid number, continue
+      if(!s.isNumber())
+      continue
+    
+      //put the next integer at the end of the window
+      slidingWindowOfInts.push(s.toInteger())
+    
+      //calculate the product of the sliding window
+      maxProduct = Math.max(maxProduct, slidingWindowOfInts.inject(1){a, v -> a * v})
+      
+      //pop the sliding window
+      if(slidingWindowOfInts.size()==5)
+      slidingWindowOfInts = slidingWindowOfInts.tail();
+    }
 
-//the current value
-int maxProduct = 0;
-//a list of integers
-def slidingWindowOfInts = []; 
-
-//iterate over every character in the string
-for( s in (new File('problem08.txt')).getText().toList()){
-  //if the character is not a valid number, continue
-  if(!s.isNumber())
-    continue
-
-  //put the next integer at the end of the window
-  slidingWindowOfInts.push(s.toInteger())
-
-  //calculate the product of the sliding window
-  maxProduct = Math.max(maxProduct, slidingWindowOfInts.inject(1){a, v -> a * v})
-  
-  //pop the sliding window
-  if(slidingWindowOfInts.size()==5)
-    slidingWindowOfInts = slidingWindowOfInts.tail();
+  println maxProduct;
+  }
 }
 
-println maxProduct;
-
+new problem().run();
 
 
